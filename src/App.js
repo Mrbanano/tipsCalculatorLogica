@@ -1,5 +1,12 @@
 import React from 'react';
-import './style.css';
+import './style.scss';
+
+//import Components
+import { Calculator } from './Components/Calculator';
+import { Header } from './Components/Header';
+import { FormTips } from './Components/FormTips';
+import { Result } from './Components/Result';
+import { CustomInput } from './Components/CustomInput';
 
 const TipCalc = (amount, tipsAmount = 15) => {
   return amount * (tipsAmount / 100);
@@ -24,47 +31,61 @@ export default function App() {
   const [tipsByPerson, setTipsByPerson] = React.useState(0);
 
   return (
-    <div>
-      <div className="">
-        <input
-          type="text"
-          placeholder="De cuanto es tu cuenta ?"
-          onChange={(e) => {
-            let value = e.target.value;
-            setTips(TipCalc(value));
-            setTotal(TotalCalc(value, TipCalc(value)));
-          }}
-        />
-        <input
-          type="text"
-          placeholder="Numero de personas ?"
-          onChange={(e) => {
-            setPersonas(e.target.value);
-            console.log(tips, personas);
-            setTipsByPerson(TipByPerson(tips, e.target.value));
-          }}
-        />
+    <main className="App">
+      <div className="App-Container">
+        <div className="App-Content">
+          <Header />
+          <Calculator>
+            <FormTips>
+              <CustomInput />
+              <div className="">
+                <input
+                  type="text"
+                  placeholder="De cuanto es tu cuenta ?"
+                  onChange={(e) => {
+                    let value = e.target.value;
+                    setTips(TipCalc(value));
+                    setTotal(TotalCalc(value, TipCalc(value)));
+                  }}
+                />
+                <input
+                  type="text"
+                  placeholder="Numero de personas ?"
+                  onChange={(e) => {
+                    setPersonas(e.target.value);
+                    console.log(tips, personas);
+                    setTipsByPerson(TipByPerson(tips, e.target.value));
+                  }}
+                />
+              </div>
+            </FormTips>
+            <Result>
+              <div className="">
+                <p>Total a pagar</p>
+                <p> {total === 0 ? '$ 0.00 MXN' : `$ ${total} MXN`}</p>
+              </div>
+              <div className="">
+                <p>Total de Propina</p>
+                <p> {tips === 0 ? '$ 0.00 MXN' : `$ ${tips} MXN`}</p>
+              </div>
+              <div className="">
+                <p>Propinas por persona</p>
+                <p>
+                  {tipsByPerson === 0 ? '$ 0.00 MXN' : `$ ${tipsByPerson} MXN`}
+                </p>
+              </div>
+              <div className="">
+                <p>Monto por persona</p>
+                <p>$ 0.00 MXN</p>
+              </div>
+              <div className="">
+                <p>Total por persona</p>
+                <p>$ 0.00 MXN</p>
+              </div>
+            </Result>
+          </Calculator>
+        </div>
       </div>
-      <div className="">
-        <p>Total a pagar</p>
-        <p> {total === 0 ? '$ 0.00 MXN' : `$ ${total} MXN`}</p>
-      </div>
-      <div className="">
-        <p>Total de Propina</p>
-        <p> {tips === 0 ? '$ 0.00 MXN' : `$ ${tips} MXN`}</p>
-      </div>
-      <div className="">
-        <p>Propinas por persona</p>
-        <p>{tipsByPerson === 0 ? '$ 0.00 MXN' : `$ ${tipsByPerson} MXN`}</p>
-      </div>
-      <div className="">
-        <p>Monto por persona</p>
-        <p>$ 0.00 MXN</p>
-      </div>
-      <div className="">
-        <p>Total por persona</p>
-        <p>$ 0.00 MXN</p>
-      </div>
-    </div>
+    </main>
   );
 }
