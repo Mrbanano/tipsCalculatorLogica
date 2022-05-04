@@ -1,6 +1,10 @@
 import React from 'react';
 import './style.scss';
 
+//Import Assets
+
+import Dolar from './Assets/icons/Dolar.png';
+
 //import Components
 import { Calculator } from './Components/Calculator';
 import { Header } from './Components/Header';
@@ -37,6 +41,7 @@ export default function App() {
           <Header />
           <Calculator>
             <FormTips>
+              <img src={Dolar} alt="onta" />
               <CustomInput />
               <div className="">
                 <input
