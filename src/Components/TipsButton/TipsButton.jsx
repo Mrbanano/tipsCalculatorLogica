@@ -5,7 +5,7 @@ export const TipsButton = ({ item }) => {
   return (
     <>
       {item === 'Custom' ? (
-        <input placeholder={item} />
+        <input className="TipsButtonCustom" placeholder={item} />
       ) : (
         <button className="TipsButton">{item}%</button>
       )}

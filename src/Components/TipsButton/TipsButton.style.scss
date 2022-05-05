@@ -12,8 +12,27 @@
   }
 }
 
-input {
+.TipsButtonCustom {
+  border: 3px solid transparent;
   padding: 10px;
   width: 135px;
   text-align: right;
+  border-radius: 4px;
+  color: #48777b;
+  &:focus {
+    border: 3px solid #5ca89e;
+    outline: none;
+  }
+  &:active {
+    border: none;
+    outline: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .TipsButton,
+  .TipsButtonCustom {
+    width: 90px;
+    height: 40px;
+  }
 }

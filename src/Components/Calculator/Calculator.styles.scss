@@ -12,3 +12,18 @@ $CalculatorBg: #fff;
     }
   }
 }
+
+@media screen and (min-width: 768px) {
+  .Calculator {
+    margin: 35px auto 0;
+    max-width: 766px;
+    border-radius: 24px;
+  }
+  .Calculator-Content {
+    height: 404px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 28px 30px;
+  }
+}

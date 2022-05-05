@@ -1,3 +1,19 @@
 .FormTips {
   padding: 9px;
 }
+
+@media screen and (min-width: 768px) {
+  .FormTips {
+    max-width: 350px;
+    height: 100%;
+    width: 50%;
+    padding: 0;
+    .FormTips-Content {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 15px;
+    }
+  }
+}

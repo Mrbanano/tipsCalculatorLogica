@@ -1,6 +1,25 @@
 .Tips-Content {
-  margin-block-end: 40px;
+  margin: 0px auto 40px auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, min(140px));
-  gap: 10px;
+  grid-template-columns: repeat(auto-fit, min(135px));
+  justify-content: space-around;
+  gap: 16px;
+}
+
+.Tips-Container {
+  p {
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 22px;
+    color: #6c7b7e;
+    margin-block-end: 13px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .Tips-Content {
+    grid-template-columns: repeat(auto-fit, min(90px));
+    justify-content: space-around;
+    gap: 13px;
+  }
 }

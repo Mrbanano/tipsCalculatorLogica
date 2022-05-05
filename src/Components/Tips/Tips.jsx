@@ -16,8 +16,11 @@ export const Tips = () => {
   return (
     <section className="Tips">
       <div className="Tips-Container">
+        <p>Select Tip %</p>
         <div className="Tips-Content">
-          {TipsNumber.map((item) => (<TipsButton key={item.tip} item={item.tip} />))}
+          {TipsNumber.map((item) => (
+            <TipsButton key={item.tip} item={item.tip} />
+          ))}
         </div>
       </div>
     </section>

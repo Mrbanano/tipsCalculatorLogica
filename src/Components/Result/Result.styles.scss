@@ -5,3 +5,21 @@
   padding-block-end: 20px;
   padding-inline: 22px;
 }
+
+@media screen and (min-width: 768px) {
+  .Result {
+    width: 50%;
+    height: 100%;
+    max-width: 342px;
+    padding-block-start: 43px;
+    padding-block-end: 30px;
+    padding-inline: 30px;
+    .Result-Content {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 40px;
+    }
+  }
+}
