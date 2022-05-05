@@ -1,6 +1,6 @@
 import React from 'react';
 import './Result.styles.scss';
-
+  
 export const Result = ({ children }) => {
   return (
     <section className="Result">

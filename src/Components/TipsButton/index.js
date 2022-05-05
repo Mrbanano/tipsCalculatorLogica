@@ -1,0 +1,1 @@
+export { TipsButton } from './TipsButton';

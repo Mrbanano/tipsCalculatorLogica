@@ -1,0 +1,32 @@
+.CustomInput-Content {
+  position: relative;
+  img {
+    position: absolute;
+    top: 13px;
+    left: 18px;
+  }
+
+  input {
+    border: 3px solid transparent;
+    width: 100%;
+    height: 35px;
+    text-align: right;
+    font-size: 18px;
+    padding: 16px;
+    &:focus {
+      border: 3px solid #5ca89e;
+      outline: none;
+    }
+    &:active {
+      border: none;
+      outline: none;
+    }
+  }
+}
+
+.InputCero {
+  color: #9baeae;
+}
+.InputWithValue {
+  color: #48777b;
+}

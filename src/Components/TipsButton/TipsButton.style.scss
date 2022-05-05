@@ -1,0 +1,19 @@
+.TipsButton {
+  height: 46px;
+  width: 135px;
+  background: #00474b;
+  border-radius: 4px;
+  color: white;
+  border: none;
+
+  &:hover {
+    background-color: #26c2ad;
+    color: #00474b;
+  }
+}
+
+input {
+  padding: 10px;
+  width: 135px;
+  text-align: right;
+}

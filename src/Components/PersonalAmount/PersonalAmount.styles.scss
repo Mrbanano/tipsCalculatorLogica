@@ -1,0 +1,28 @@
+.PersonalAmount {
+  margin-block-end: 42px;
+  display: flex;
+  justify-content: space-between;
+  .PersonalAmountText {
+    p {
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 21px;
+      letter-spacing: -0.02em;
+      color: white;
+    }
+    span {
+      font-size: 11px;
+      line-height: 16px;
+      letter-spacing: -0.02em;
+      color: #78a1a5;
+    }
+  }
+  .PersonalAmountPrice {
+    p {
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 56px;
+      color: #27c6ae;
+    }
+  }
+}

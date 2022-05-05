@@ -1,0 +1,6 @@
+.Tips-Content {
+  margin-block-end: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, min(140px));
+  gap: 10px;
+}

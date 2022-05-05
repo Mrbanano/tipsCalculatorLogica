@@ -1,16 +1,15 @@
 import React from 'react';
 import './style.scss';
 
-//Import Assets
-
-import Dolar from './Assets/icons/Dolar.png';
-
 //import Components
 import { Calculator } from './Components/Calculator';
 import { Header } from './Components/Header';
 import { FormTips } from './Components/FormTips';
 import { Result } from './Components/Result';
-import { CustomInput } from './Components/CustomInput';
+import { GeneralInput } from './Components/GeneralInput';
+import { Tips } from './Components/Tips';
+import { PersonalAmount } from './Components/PersonalAmount';
+import { ResetButton } from './Components/ResetButton';
 
 const TipCalc = (amount, tipsAmount = 15) => {
   return amount * (tipsAmount / 100);
@@ -29,10 +28,16 @@ const AmountByPerson = (Amount, PersonNumber) => {
 };
 
 export default function App() {
-  const [tips, setTips] = React.useState(0);
-  const [total, setTotal] = React.useState(0);
-  const [personas, setPersonas] = React.useState(1);
-  const [tipsByPerson, setTipsByPerson] = React.useState(0);
+  const [state, setState] = React.useState({
+    Total: 0,
+    Tips: 0,
+    TipsAmout: 0,
+    Person: 1,
+    tipsByPerson: 0,
+    AmountByPerson: 0,
+  });
+
+  console.log('Total', state);
 
   return (
     <main className="App">
@@ -41,52 +46,19 @@ export default function App() {
           <Header />
           <Calculator>
             <FormTips>
-              <img src={Dolar} alt="onta" />
-              <CustomInput />
-              <div className="">
-                <input
-                  type="text"
-                  placeholder="De cuanto es tu cuenta ?"
-                  onChange={(e) => {
-                    let value = e.target.value;
-                    setTips(TipCalc(value));
-                    setTotal(TotalCalc(value, TipCalc(value)));
-                  }}
-                />
-                <input
-                  type="text"
-                  placeholder="Numero de personas ?"
-                  onChange={(e) => {
-                    setPersonas(e.target.value);
-                    console.log(tips, personas);
-                    setTipsByPerson(TipByPerson(tips, e.target.value));
-                  }}
-                />
-              </div>
+              <GeneralInput
+                label="Bill"
+                icon="Dolar"
+                state={state}
+                setState={setState}
+              />
+              <Tips />
+              <GeneralInput label="Number of People" icon="people" />
             </FormTips>
             <Result>
-              <div className="">
-                <p>Total a pagar</p>
-                <p> {total === 0 ? '$ 0.00 MXN' : `$ ${total} MXN`}</p>
-              </div>
-              <div className="">
-                <p>Total de Propina</p>
-                <p> {tips === 0 ? '$ 0.00 MXN' : `$ ${tips} MXN`}</p>
-              </div>
-              <div className="">
-                <p>Propinas por persona</p>
-                <p>
-                  {tipsByPerson === 0 ? '$ 0.00 MXN' : `$ ${tipsByPerson} MXN`}
-                </p>
-              </div>
-              <div className="">
-                <p>Monto por persona</p>
-                <p>$ 0.00 MXN</p>
-              </div>
-              <div className="">
-                <p>Total por persona</p>
-                <p>$ 0.00 MXN</p>
-              </div>
+              <PersonalAmount label="Tips" data={state.tipsByPerson} />
+              <PersonalAmount label="Total" data={state.AmountByPerson} />
+              <ResetButton />
             </Result>
           </Calculator>
         </div>
