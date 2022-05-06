@@ -53,7 +53,12 @@ export default function App() {
                 setState={setState}
               />
               <Tips />
-              <GeneralInput label="Number of People" icon="people" />
+              <GeneralInput
+                label="Number of People"
+                icon="people"
+                state={state}
+                setState={setState}
+              />
             </FormTips>
             <Result>
               <section>
