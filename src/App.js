@@ -11,22 +11,6 @@ import { Tips } from './Components/Tips';
 import { PersonalAmount } from './Components/PersonalAmount';
 import { ResetButton } from './Components/ResetButton';
 
-const TipCalc = (amount, tipsAmount = 15) => {
-  return amount * (tipsAmount / 100);
-};
-
-const TotalCalc = (amount, tipsAmount) => {
-  return Number.parseFloat(amount) + Number.parseFloat(tipsAmount);
-};
-
-const TipByPerson = (tipsAmount, PersonNumber) => {
-  return Number.parseFloat(tipsAmount) / Number.parseFloat(PersonNumber);
-};
-
-const AmountByPerson = (Amount, PersonNumber) => {
-  return Amount / PersonNumber;
-};
-
 export default function App() {
   const [state, setState] = React.useState({
     Total: 0,
@@ -37,8 +21,6 @@ export default function App() {
     AmountByPerson: 0,
   });
 
-  console.log('Total', state);
-
   return (
     <main className="App">
       <div className="App-Container">
@@ -46,18 +28,12 @@ export default function App() {
           <Header />
           <Calculator>
             <FormTips>
-              <GeneralInput
-                label="Bill"
-                icon="Dolar"
-                state={state}
-                setState={setState}
-              />
+              <GeneralInput label="Bill" icon="Dolar" name="Amount" />
               <Tips />
               <GeneralInput
                 label="Number of People"
                 icon="people"
-                state={state}
-                setState={setState}
+                name="Person"
               />
             </FormTips>
             <Result>

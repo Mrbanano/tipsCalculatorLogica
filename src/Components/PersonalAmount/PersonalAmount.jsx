@@ -1,7 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './PersonalAmount.styles.scss';
 
-export const PersonalAmount = ({ label, data }) => {
+//Import Context
+import { CalculatorContext } from '../../Context/Calculator/CalculatorContext';
+
+export const PersonalAmount = ({ label }) => {
+  const { AmountByPerson, tipsByPerson } = useContext(CalculatorContext);
+
+  const show = label == 'Tips' ? tipsByPerson : AmountByPerson;
+
+  const showFormat = show.toLocaleString('en-US', {
+    style: 'currency',
+    currency: 'USD',
+  });
+
   return (
     <div className="PersonalAmount">
       <div className="PersonalAmountText">
@@ -9,7 +21,7 @@ export const PersonalAmount = ({ label, data }) => {
         <span>/person</span>
       </div>
       <div className="PersonalAmountPrice">
-        <p> {data === 0 ? '$ 0.00' : `$ ${data}`}</p>
+        <p> {show == 0 ? '$ 0.00' : showFormat}</p>
       </div>
     </div>
   );

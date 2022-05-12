@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './CustomInput.styles.scss';
 
-export const CustomInput = ({ placeholder, icon, state, setState }) => {
+//Import Context
+
+import { CalculatorContext } from '../../Context/Calculator/CalculatorContext';
+
+export const CustomInput = ({ placeholder, icon, name }) => {
+  const Context = useContext(CalculatorContext);
+
   const onChange = ({ target }) => {
-    setState({
-      ...state,
-      Total: target.value,
-    });
+    Context.setInfo(target.value, target.name);
   };
 
   return (
@@ -21,7 +24,13 @@ export const CustomInput = ({ placeholder, icon, state, setState }) => {
             }
             alt={placeholder}
           />
-          <input className="InputCero" type="number" onChange={onChange} />
+          <input
+            className="InputCero"
+            type="number"
+            onChange={onChange}
+            name={name}
+            value={Context[name]}
+          />
         </div>
       </div>
     </div>
